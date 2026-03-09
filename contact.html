@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Coffee Chapters</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="IMAGES/cc-logo.png" class="logo-img">
+            <div class="logo-text">Coffee Chapters</div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li>
+                <a href="cart.html" class="cart-link">🛒(<span id="cart-count">0</span>)</a>
+            </li>
+        </ul>
+        <div class="nav-btns">
+      <button onclick="window.location.href='signin.html'" class="btn-signin">Sign in</button>
+      <button onclick="window.location.href='signup.html'" class="btn-signup">Sign Up</button>
+    </div>
+  </div>
+        </div>
+    </nav>
+</header>
+
+<section class="contact-section" style="background-image: url('IMAGES/homebg.jpeg');">
+    <h1>Contact Us</h1>
+
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

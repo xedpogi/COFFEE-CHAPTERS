@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us — Coffee Chapters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="IMAGES/cc-logo.png" class="logo-img">
+            <div class="logo-text">Coffee Chapters</div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li>
+                <a href="cart.html" class="cart-link">🛒(<span id="cart-count">0</span>)</a>
+            </li>
+        </ul>
+        <div class="nav-btns">
+      <button onclick="window.location.href='signin.html'" class="btn-signin">Sign in</button>
+      <button onclick="window.location.href='signup.html'" class="btn-signup">Sign Up</button>
+    </div>
+    </nav>
+</header>
+
+<section class="about-section" style="background-image: url('IMAGES/aboutusbg.jpg'); background-size: cover; background-position: center; padding: 100px 20px; color: #2D2926; text-align: center;">
+    <h1 style="font-size: 150px;">Our Story</h1>
+    <p style="text-align: center; font-size: 40px;">
+        Coffee Chapters was born from a heartfelt vision: to craft<br>
+        a sanctuary where anyone could stop, relax, and feel at<br> home.
+    </p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

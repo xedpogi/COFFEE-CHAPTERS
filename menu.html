@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Chapters — Menu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="mobileresponsiveness.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="IMAGES/cc-logo.png" class="logo-img" onclick="window.location.href='index.html';">
+            <div class="logo-text">Coffee Chapters</div>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html" class="active">Menu</a></li>
+            <li> <a href="cart.html" class="cart-link">🛒(<span id="cart-count">0</span>)</a>
+            </li>
+        </ul>
+        
+        <div class="nav">
+      <button onclick="window.location.href='signin.html'" class="btn-signin">Sign in</button>
+      <button onclick="window.location.href='signup.html'" class="btn-signup">Sign Up</button>
+    </div>
+  </div>
+        </div>
+        
+    </nav>
+</header>
+
+<div class="hamburger" id="hamburger">&#9776;</div>
+<div id="side-menu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="cart.html" class="cart-link">🛒(<span id="cart-count">0</span>)</a></li>
+        <li><button onclick="window.location.href='signin.html'" class="sign-in-btn">Sign in</button></li>
+        <li><button onclick="window.location.href='signup.html'" class="sign-up-btn">Sign Up</button></li>
+    </ul>
+</div>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('side-menu');
+
+    hamburger.addEventListener('click', () => {
+        sideMenu.classList.toggle('open');
+    });
+
+
+    window.addEventListener('click', (e) => {
+        if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            sideMenu.classList.remove('open');
+        }
+    });
+</script>
+
+<section class="menu-section" style="background-image: url('IMAGES/menubg.jpeg');">
+    <h1>Our Menu</h1>
+
+    <div class="search-container">
+        <input type="text" id="menu-search" placeholder="Search for items..." onkeyup="filterMenu()">
+    </div>
+
+  <h1>Iced Beverages</h1>
+    <div class="menu-grid" style="text-align: left;">
+        
+        <div class="menu-card">
+            <img src="IMAGES/001 - Iced Spanish Latte - from ₱ 145.jpg">
+            <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Iced Spanish Latte</p>
+            <button onclick="addToCart('Iced Spanish Latte', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/010 - Iced Dirty Matcha - from ₱ 145.jpg">
+            <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Iced Dirty Matcha</p>
+            <button onclick="addToCart('Iced Dirty Matcha', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/003 - Iced Strawberry Latte - from ₱ 135.jpg">
+            <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱185</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱135</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Iced Strawberry Latte</p>
+            <button onclick="addToCart('Iced Strawberry Latte', 135)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/008 - Iced Vanilla Latte - from ₱ 145.jpg">
+            <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Iced Vanilla Latte</p>
+            <button onclick="addToCart('Iced Vanilla Latte', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/005 - Iced Tiramisu Cream Cafe - from ₱ 145.jpg">
+            <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Iced Tiramisu Cream Cafe</p>
+            <button onclick="addToCart('Iced Tiramisu Cream Cafe', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/009 - Iced Hazelnut Macchiato - from ₱ 145.jpg">
+            <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            
+            <p style="font-size: 18px;">Iced Hazelnut Macchiato</p>
+            <button onclick="addToCart('Iced Hazelnut Macchiato', 145)"><h3>+</h3></button>
+        </div>
+
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/022 - Iced Chocolate - from ₱ 150.jpg">
+            <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱200</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱150</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Iced Chocoloate</p>
+            <button onclick="addToCart('Iced Chocolate', 150)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/023 - Iced Yogurt Capsule - from ₱ 150.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱295</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱245</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Iced Yogurt Capsule</p>
+            <button onclick="addToCart('Iced Yogurt Capsule', 150)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/024 - Iced Strawberry Choco - from ₱ 150.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱295</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱245</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Iced Strawberry Choco</p>
+            <button onclick="addToCart('Iced Strawberry Choco', 245)"><h3>+</h3></button>
+        </div>
+</div>
+<br>
+<h1>Frappe Beverages</h1>
+
+<div class="menu-grid" style="text-align: left;">
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/025 - Choco Java Chip Frappe - from ₱ 195.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱185</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Choco Java Chip Frappe</p>
+            <button onclick="addToCart('Choco Java Chip Frappe', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/026 - Oreo Frappe - from ₱ 195.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱135</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Oreo Frappe</p>
+            <button onclick="addToCart('Oreo Frappe', 135)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/027 - Yogurt Capsule Frappe - from ₱ 180.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Yogurt Capsule Frappe</p>
+            <button onclick="addToCart('Yogurt Capsule Frappe', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/034 - Dirty Matcha Frappe - from ₱ 150.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱150</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱100</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Dirty Matcha Frappe</p>
+            <button onclick="addToCart('Dirty Matcha Frappe', 100)"><h3>+</h3></button>
+        </div>
+
+        </div>
+<br>
+        <h1>Hot Coffee</h1>
+
+
+        <div class="menu-grid" style="text-align: left;">
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/044 - Hot Strawberry Latte - from ₱ 130.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱130</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱90</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Hot Strawberry Latte</p>
+            <button onclick="addToCart('Hot Strawberry Latte', 90)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/045 - Hot Fresh Steamed Milk - from ₱ 130.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱130</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱90</h2h2></span>
+            </p>
+            <p style="font-size: 18px;"> Hot Fresh Steamed Milk</p>
+            <button onclick="addToCart('Hot Fresh Steamed Milk', 90)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/048 - Hot Caramel Macchiato - from ₱ 130.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱130</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱90</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Hot Caramel Macchiato</p>
+            <button onclick="addToCart('Hot Caramel Macchiato', 90)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/049 - Hot Chocolate - from ₱ 130.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱130</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱90</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Hot Chocolate</p>
+            <button onclick="addToCart('Hot Chocolate', 90)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/050 - Hot Tiramisu Cream Cafe - from ₱ 130.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱130</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱90</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Hot Tiramisu Cream Cafe</p>
+            <button onclick="addToCart('Hot Tiramisu Cream Cafe', 90)"><h3>+</h3></button>
+        </div>
+        </div>
+<br>
+        <h1>Soda Series</h1>
+                <div class="menu-grid" style="text-align: left;">
+
+        
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/052 - Sour Green Apple Lemonade Fruit Tea - from ₱ 175.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱175</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱125</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Sour Green Apple Lemonade Fruit Tea</p>
+            <button onclick="addToCart('Sour Green Apple Lemonade Fruit Tea', 125)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/053 - Apple Lemonade Fruit Tea - from ₱ 175.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱175</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱125</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Apple Lemonade Fruit Tea</p>
+            <button onclick="addToCart('Apple Lemonade Fruit Tea', 125)"><h3>+</h3></button>
+        </div>
+
+        </div>
+<br>
+        <h1>Meals</h1>
+                <div class="menu-grid" style="text-align: left;">
+
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/015 - Beef Tapa Meal - ₱ 215.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Beef Tapa Meal</p>
+            <button onclick="addToCart('Beef Tapa Meal', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/016 - Chicken Adobo Meal - ₱ 215.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱330</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱245</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Chicken Adobo Meal</p>
+            <button onclick="addToCart('Chicken Adobo Meal', 245)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/018 - Sausage & Ham Meal - ₱ 230.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱215</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱165</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Sausage & Ham Meal</p>
+            <button onclick="addToCart('Sausage & Ham Meal', 165)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/004 - Hungarian Sausage Meal - ₱ 240.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱395</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱255</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Hungarian Sausage Meal</p>
+            <button onclick="addToCart('Hungarian Sausage Meal', 255)"><h3>+</h3></button>
+        </div>
+        </div>
+<br>
+        <h1>Pasta</h1>
+                <div class="menu-grid" style="text-align: left;">
+
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/068 - Vegan Pesto - ₱ 200.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱595</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱405</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Vegan Pesto</p>
+            <button onclick="addToCart('Vegan Pesto', 405)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/069 - Mushroom Spaghetti - ₱ 200.jpg">
+            <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱495</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱345</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Mushroom Spaghetti</p>
+            <button onclick="addToCart('Mushroom Spaghetti', 345)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/070 - Creamy Carbonara - ₱ 210.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱395</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱245</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Creamy Carbonara</p>
+            <button onclick="addToCart('Creamy Carbonara', 245)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/071 - Alfredo Pasta - ₱ 210.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱255</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱205</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Alfredo Pasta</p>
+            <button onclick="addToCart('Alfredo Pasta', 205)"><h3>+</h3></button>
+        </div>
+        </div>
+
+        <h1>Pastries</h1>
+                <div class="menu-grid" style="text-align: left;">
+
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/057 - Brownies - ₱ 70.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱215</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱165</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Brownies</p>
+            
+            <button onclick="addToCart('Brownies', 165)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/058 - Sausage Bun - ₱ 130.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱130</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱90</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Sausage Bun</p>
+            <button onclick="addToCart('Sausage Bun', 90)"><h3>+</h3></button>
+        </div>
+
+         <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/067 - Tinapa Carbonara - ₱ 200.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱200</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱165</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Tinapa Carbonara</p>
+            <button onclick="addToCart('Tinapa Carbonara', 165)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/060 - Egg Pie - ₱ 210.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱205</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱155</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Egg Pie</p>
+            <button onclick="addToCart('Egg Pie', 155)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/063 - Blueberry Cheesecake - ₱ 155.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱205</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱155</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Blueberry Cheesecake</p>
+            <button onclick="addToCart('Blueberry Cheesecake', 155)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/064 - Carrot Cake - ₱ 195.jpg">
+             <p>
+   <span style="text-decoration: line-through; font-size: large; color: gray;">₱195</span><br>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Carrot Cake</p>
+            <button onclick="addToCart('Carrot Cake', 145)"><h3>+</h3></button>
+        </div>
+
+        </div>
+<br>
+        <h1>🎅 Holiday Flavors 🎅</h1>
+                <div class="menu-grid" style="text-align: left;">
+
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/puto bumbong latte.jpg">
+            <p>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Puto Bumbong Latte</p>
+            <button onclick="addToCart('Puto Bumbong Latte', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/buko pandan latte.jpg">
+            <p>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Buko Pandan Latte</p>
+            <button onclick="addToCart('Buko Pandan Latte', 145)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/bibingka cheesecake.jpg">
+            <p>
+   <span style="color:#fff; font-weight: bold;"><h2>₱145</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Bibingka Cheesecake</p>
+            <button onclick="addToCart('Bibingka Cheesecake', 175)"><h3>+</h3></button>
+        </div>
+
+        <div class="menu-card" style="text-align: left;">
+            <img src="IMAGES/ube halaya cheesecake.jpg">
+            <p>
+   <span style="color:#fff; font-weight: bold;"><h2>₱185</h2h2></span>
+            </p>
+            <p style="font-size: 18px;">Ube Halaya Cheesecake</p>
+            <button onclick="addToCart('Ube Halaya Cheesecake', 185)"><h3>+</h3></button>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-socials">
+  <div class="footer-container">
+
+    <!-- About -->
+    <div class="footer-column about">
+      <img src="IMAGES/cc-logo.png" alt="Coffee Chapters Logo" style="width: 100px;">
+      <h3>Coffee Chapters</h3>
+      <h4>Where every cup tells a story and every book<br>opens a new chapter of discovery.</h4>
+      <ul class="social-links">
+        <li><a href="https://facebook.com/coffeechapters" target="_blank"><i class="fab fa-facebook-f"></i>Coffee Chapters</a></li>
+        <li><a href="https://instagram.com/coffeechapters_" target="_blank"><i class="fab fa-instagram"></i> @coffeechapters_</a></li>
+      </ul>
+      <ul class="social-links">
+        <li><a href="https://tiktok.com/@coffeechapters_" target="_blank"><i class="fab fa-tiktok"></i> @coffeechapters_</a></li>
+      </ul>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-info-circle"></i> Abouts</a></li>
+        <li><a href="menu.html"><i class="fas fa-concierge-bell"></i> Menu</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-column" id="contact">
+      <h3>Contact us</h3>
+      <p><a href="https://maps.app.goo.gl/zTk2kvAcnUwTxNs19" target="_blank"><i class="fas fa-map-marker-alt"></i> P. Burgos, Pasay City</a></p>
+      <p><a href="https://maps.app.goo.gl/myuJfYekJvKrRG9d8" target="_blank"><i class="fas fa-map-marker-alt"></i> Taft Ave. Arellano Law School</a></p>
+      <p><a href="mailto:CoffeeChapters2025@gmail.com"><i class="fas fa-envelope"></i> CoffeeChapters2025@gmail.com</a></p>
+      <p><a href="tel:09562343143"><i class="fas fa-phone"></i> 09562343143</a></p>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    © COPYRIGHT 2025 COFFEE CHAPTERS ALL RIGHTS RESERVED.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

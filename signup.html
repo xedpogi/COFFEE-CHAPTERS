@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - Coffee Chapters</title>
+  <link rel="stylesheet" href="signin.css">
+  <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="mobileresponsiveness.css">
+    <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&family=Playfair+Display:wght@400;500;600&family=Sanchez&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="sign-in">
+
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="IMAGES/cc-logo.png" alt="Logo" class="logo-img" onclick="window.location.href='index.html';">
+      <span class="logo-text">Coffee Chapters</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="cart.html" class="cart-link">🛒(<span id="cart-count">0</span>)</a></li>
+    </ul>
+    <div class="nav">
+      <button onclick="window.location.href='signin.html'" class="btn-signin">Sign in</button>
+      <button onclick="window.location.href='signup.html'" class="btn-signup">Sign Up</button>
+    </div>
+  </nav>
+
+  <div class="hamburger" id="hamburger">&#9776;</div>
+<div id="side-menu">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="cart.html" class="cart-link">🛒(<span id="cart-count">0</span>)</a></li>
+        <li><button onclick="window.location.href='signin.html'" class="sign-in-btn">Sign in</button></li>
+        <li><button onclick="window.location.href='signup.html'" class="sign-up-btn">Sign Up</button></li>
+    </ul>
+</div>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const sideMenu = document.getElementById('side-menu');
+
+    hamburger.addEventListener('click', () => {
+        sideMenu.classList.toggle('open');
+    });
+
+
+    window.addEventListener('click', (e) => {
+        if (!sideMenu.contains(e.target) && !hamburger.contains(e.target)) {
+            sideMenu.classList.remove('open');
+        }
+    });
+</script>
+
+  <section class="login-section" style="background-image: url('IMAGES/signinbg.jpeg');">
+    <div class="login-form">
+      <div class="tabs">
+        <button class="tab" onclick="window.location.href='signin.html'">Sign In</button>
+        <button class="tab active" onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+
+      <form>
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <div class="password-container">
+          <input type="password" placeholder="Enter your password" required>
+          <button type="button" class="toggle-pass">👁️</button>
+        </div>
+
+        <button type="submit" class="btn-submit">Sign In</button>
+
+        <div class="options">
+          <label><input type="checkbox" style="width:fit-content; padding-left: 5px;">     Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div> 
+      </form>
+    </div>
+
+    <div class="carousel">
+      <img src="IMAGES/Property 1=carousel img 1.jpg" class="carousel-slide active" alt="Slide 1">
+      <img src="IMAGES/Property 1=carousel img 2.jpg" class="carousel-slide" alt="Slide 2">
+      <img src="IMAGES/Property 1=carousel img 3.jpg" class="carousel-slide" alt="Slide 3">
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-socials">
+  <div class="footer-container">
+
+    <!-- About -->
+    <div class="footer-column about">
+      <img src="IMAGES/cc-logo.png" alt="Coffee Chapters Logo" style="width: 100px;">
+      <h3>Coffee Chapters</h3>
+      <h4>Where every cup tells a story and every book<br>opens a new chapter of discovery.</h4>
+      <ul class="social-links">
+        <li><a href="https://facebook.com/coffeechapters" target="_blank"><i class="fab fa-facebook-f"></i>Coffee Chapters</a></li>
+        <li><a href="https://instagram.com/coffeechapters_" target="_blank"><i class="fab fa-instagram"></i> @coffeechapters_</a></li>
+      </ul>
+      <ul class="social-links">
+        <li><a href="https://tiktok.com/@coffeechapters_" target="_blank"><i class="fab fa-tiktok"></i> @coffeechapters_</a></li>
+      </ul>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"><i class="fas fa-info-circle"></i> Abouts</a></li>
+        <li><a href="menu.html"><i class="fas fa-concierge-bell"></i> Menu</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="footer-column" id="contact">
+      <h3>Contact us</h3>
+      <p><a href="https://maps.app.goo.gl/zTk2kvAcnUwTxNs19" target="_blank"><i class="fas fa-map-marker-alt"></i> P. Burgos, Pasay City</a></p>
+      <p><a href="https://maps.app.goo.gl/myuJfYekJvKrRG9d8" target="_blank"><i class="fas fa-map-marker-alt"></i> Taft Ave. Arellano Law School</a></p>
+      <p><a href="mailto:CoffeeChapters2025@gmail.com"><i class="fas fa-envelope"></i> CoffeeChapters2025@gmail.com</a></p>
+      <p><a href="tel:09562343143"><i class="fas fa-phone"></i> 09562343143</a></p>
+    </div>
+
+  </div>
+
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    © COPYRIGHT 2025 COFFEE CHAPTERS ALL RIGHTS RESERVED.
+  </div>
+</footer>
+
+  <script src="signin.js"></script>
+</body>
+</html>
